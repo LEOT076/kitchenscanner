@@ -170,14 +170,13 @@
 	Quagga.init({
     inputStream : {
       name : "Live",
-      type : "LiveStream",
+      type : "VideoStream",
       target: document.querySelector('#camera-test')    // Or '#yourElement' (optional)
     },
 	constraints: {
     width: 640,
     height: 480,
     facingMode: "environment",
-    deviceId: "7832475934759384534"
   },
     decoder : {
       readers : ["code_128_reader"]
@@ -188,7 +187,7 @@
           return
       }
       console.log("Initialization finished. Ready to start");
-	  alert('Thanks for the click');
+	  alert('Initialization finished. Ready to start');
       Quagga.start();
   });
 
