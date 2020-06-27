@@ -164,8 +164,8 @@
 <!--[if mso]></td></tr></table><![endif]-->
 <div style="font-size:16px;text-align:center;font-family:Roboto Slab, Arial, Helvetica Neue, Helvetica, sans-serif">
 
-<script src="https://cdn.rawgit.com/serratus/quaggaJS/0420d5e0/dist/quagga.min.js"></script>
 <div id="camera-test"></div>
+<script src="https://cdn.rawgit.com/serratus/quaggaJS/0420d5e0/dist/quagga.min.js"></script>
 <script>
 	Quagga.init({
     inputStream : {
@@ -182,9 +182,12 @@
           return
       }
       console.log("Initialization finished. Ready to start");
+	  window.alert("complete!");
       Quagga.start();
   });
+
   Quagga.onDetected(function(){
+	console.log('barcode detected');
 	console.log(data);
 	window.alert(data);
   });
