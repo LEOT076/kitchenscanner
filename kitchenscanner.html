@@ -163,19 +163,6 @@
 </div>
 <!--[if mso]></td></tr></table><![endif]-->
 <div style="font-size:16px;text-align:center;font-family:Roboto Slab, Arial, Helvetica Neue, Helvetica, sans-serif">
-<!-- Camera -->
-<main id="camera">
-    <!-- Camera sensor -->
-    <canvas id="camera--sensor"></canvas>
-    
-    <!-- Camera view -->
-    <video id="camera--view" autoplay playsinline></video>
-    
-    <!-- Camera output -->
-    <img src="//:0" alt="" id="camera--output">
-    <!-- Camera trigger -->
-    <button id="camera--trigger">Take a picture</button>
-</main>
 
 <script src="https://cdn.rawgit.com/serratus/quaggaJS/0420d5e0/dist/quagga.min.js"></script>
 <div id="camera-test"></div>
@@ -199,40 +186,8 @@
   });
   Quagga.onDetected(function(){
 	console.log(data);
+	window.alert(data);
   });
-
-</script>
-
-<script>
-	// Set constraints for the video stream
-	var constraints = { video: { facingMode: "environment" }, audio: false };
-	// Define constants
-	const cameraView = document.querySelector("#camera--view"),
-		cameraOutput = document.querySelector("#camera--output"),
-		cameraSensor = document.querySelector("#camera--sensor"),
-		cameraTrigger = document.querySelector("#camera--trigger")
-	// Access the device camera and stream to cameraView
-	function cameraStart() {
-		navigator.mediaDevices
-			.getUserMedia(constraints)
-			.then(function(stream) {
-			track = stream.getTracks()[0];
-			cameraView.srcObject = stream;
-		})
-		.catch(function(error) {
-			console.error("Oops. Something is broken.", error);
-		});
-	}
-	// Take a picture when cameraTrigger is tapped
-	cameraTrigger.onclick = function() {
-		cameraSensor.width = cameraView.videoWidth;
-		cameraSensor.height = cameraView.videoHeight;
-		cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
-		cameraOutput.src = cameraSensor.toDataURL("image/webp");
-		cameraOutput.classList.add("taken");
-	};
-	// Start the video stream when the window loads
-	window.addEventListener("load", cameraStart, false);
 
 </script>
 
