@@ -176,7 +176,33 @@
     <!-- Camera trigger -->
     <button id="camera--trigger">Take a picture</button>
 </main>
+
 <script src="https://cdn.rawgit.com/serratus/quaggaJS/0420d5e0/dist/quagga.min.js"></script>
+<div id="camera-test"></div>
+<script>
+	Quagga.init({
+    inputStream : {
+      name : "Live",
+      type : "LiveStream",
+      target: document.querySelector('#camera--view')    // Or '#yourElement' (optional)
+    },
+    decoder : {
+      readers : ["code_128_reader"]
+    }
+  }, function(err) {
+      if (err) {
+          console.log(err);
+          return
+      }
+      console.log("Initialization finished. Ready to start");
+      Quagga.start();
+  });
+  Quagga.onDetected(function(){
+	console.log(data);
+  });
+
+</script>
+
 <script>
 	// Set constraints for the video stream
 	var constraints = { video: { facingMode: "environment" }, audio: false };
@@ -208,23 +234,6 @@
 	// Start the video stream when the window loads
 	window.addEventListener("load", cameraStart, false);
 
-	Quagga.init({
-    inputStream : {
-      name : "Live",
-      type : "LiveStream",
-      target: document.querySelector('#yourElement')    // Or '#yourElement' (optional)
-    },
-    decoder : {
-      readers : ["code_128_reader"]
-    }
-  }, function(err) {
-      if (err) {
-          console.log(err);
-          return
-      }
-      console.log("Initialization finished. Ready to start");
-      Quagga.start();
-  });
 </script>
 
 
