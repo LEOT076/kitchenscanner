@@ -182,14 +182,14 @@
           return
       }
       console.log("Initialization finished. Ready to start");
-	  window.alert("complete!");
+	  alert('Thanks for the click');
       Quagga.start();
   });
 
   Quagga.onDetected(function(){
 	console.log('barcode detected');
 	console.log(data);
-	window.alert(data);
+	alert(data);
   });
 
 </script>
