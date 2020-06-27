@@ -173,6 +173,12 @@
       type : "LiveStream",
       target: document.querySelector('#camera-test')    // Or '#yourElement' (optional)
     },
+	constraints: {
+    width: 640,
+    height: 480,
+    facingMode: "environment",
+    deviceId: "7832475934759384534"
+  },
     decoder : {
       readers : ["code_128_reader"]
     }
