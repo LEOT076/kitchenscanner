@@ -39,6 +39,8 @@
             console.log(data.codeResult.code);
             document.querySelector('#resultado').innerText = data.codeResult.code;
             navigator.vibrate(200)
+            var audio = new Audio('success.mp3');
+            audio.play();
             alert(data.codeResult.code)
         });
 
