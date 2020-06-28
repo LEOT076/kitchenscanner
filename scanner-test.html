@@ -38,6 +38,7 @@
         Quagga.onDetected(function (data) {
             console.log(data.codeResult.code);
             document.querySelector('#resultado').innerText = data.codeResult.code;
+            window.navigator.vibrate(200); // vibrate for 200ms
             alert(data.codeResult.code)
         });
 
