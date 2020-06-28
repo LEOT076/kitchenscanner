@@ -11,14 +11,16 @@
 <body>
     <button onclick="soundEffect.play();">Press for success sound</button>
     KitchenScanner
-    <div id="resultado"></div>
+    <div id="result"></div>
     <div id="camera"></div>
     <div id="results"></div>
 
     <script src="quagga.min.js"></script>
+
     <script>
         const soundEffect = new Audio();
-  
+        let barcodes = []
+
         Quagga.init({
             inputStream: {
                 name: "Live",
@@ -39,12 +41,19 @@
 
         Quagga.onDetected(function (data) {
             console.log(data.codeResult.code);
-            document.querySelector('#resultado').innerText = data.codeResult.code;
+            document.querySelector('#result').innerText = data.codeResult.code;
             document.querySelector('#results').innerText = document.querySelector('#results').innerText + '\n' + data.codeResult.code;
+            
+            if (barcodes.includes(data.codeResult.code) == false){
+                barcodes.push(data.codeResult.code)
+            }
+            else {
+                alert(barcodes)
+            }
 
             soundEffect.src = 'success.mp3';
             soundEffect.play();
-            navigator.vibrate(50);
+            navigator.vibrate(100);
         });
 
     </script>
