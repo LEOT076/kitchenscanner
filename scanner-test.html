@@ -10,7 +10,7 @@
 
 <body>
     <button onclick="soundEffect.play();">Press for success sound</button>
-    KitchenScanner4
+    KitchenScanner5
     <div id="result"></div>
     <div id="camera"></div>
     <div id="results"></div>
@@ -51,11 +51,11 @@
                 barcodes.push(data.codeResult.code)
                 alert(barcodes)
             }
-
+            
+            Quagga.stop()
             soundEffect.src = 'success.mp3';
             soundEffect.play();
             navigator.vibrate(100);
-            Quagga.stop()
         });
 
     </script>
