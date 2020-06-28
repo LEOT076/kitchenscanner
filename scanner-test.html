@@ -10,7 +10,7 @@
 
 <body>
     <button onclick="soundEffect.play();">Press for success sound</button>
-    KitchenScanner2
+    KitchenScanner3
     <div id="result"></div>
     <div id="camera"></div>
     <div id="results"></div>
@@ -31,9 +31,15 @@
                 frequency: 5
             },
             decoder: {
-                readers: ["upc_reader", "code_128_reader"]
+                readers: ["upc_reader", "code_128_reader"],
+  debug: {
+      drawBoundingBox: false,
+      showFrequency: false,
+      drawScanline: false,
+      showPattern: false
+  }
+  multiple: false
             }
-            multiple: false
         }, function (err) {
             if (err) {
                 console.log(err);
