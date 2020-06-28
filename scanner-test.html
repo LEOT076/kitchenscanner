@@ -9,14 +9,16 @@
 </head>
 
 <body>
-    THIS IS NEW
+    THIS IS NEW 1
     <div id="resultado"></div>
     <div id="camera"></div>
 
     <script src="quagga.min.js"></script>
 
     <script>
-
+        const soundEffect = new Audio();
+        soundEffect.play();
+        
         Quagga.init({
             inputStream: {
                 name: "Live",
@@ -38,9 +40,9 @@
         Quagga.onDetected(function (data) {
             console.log(data.codeResult.code);
             document.querySelector('#resultado').innerText = data.codeResult.code;
-            var audio = new Audio('success.mp3');
-            audio.play();
-            alert(data.codeResult.code)
+            soundEffect.src = 'success.mp3';
+            soundEffect.play();
+            //alert(data.codeResult.code)
         });
 
     </script>
