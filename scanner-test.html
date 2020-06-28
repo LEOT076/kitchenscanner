@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    THIS IS A TEST
+    THIS IS NEW
     <div id="resultado"></div>
     <div id="camera"></div>
 
@@ -24,7 +24,7 @@
                 target: document.querySelector('#camera')    // Or '#yourElement' (optional)
             },
             decoder: {
-                readers: ["code_128_reader"]
+                readers: ["code_128_reader", "ean_reader"]
             }
         }, function (err) {
             if (err) {
