@@ -9,12 +9,13 @@
 </head>
 
 <body>
+    <button onclick="soundEffect.play();">Press for sound</button>
     THIS IS NEW 1
     <div id="resultado"></div>
     <div id="camera"></div>
+    <div id="results"></div>
 
     <script src="quagga.min.js"></script>
-    <button onclick="soundEffect.play();">Click me</button>
     <script>
         const soundEffect = new Audio();
   
@@ -39,9 +40,10 @@
         Quagga.onDetected(function (data) {
             console.log(data.codeResult.code);
             document.querySelector('#resultado').innerText = data.codeResult.code;
+            document.querySelector('#results').innerText = document.querySelector('#results').innerText + data.codeResult.code;
+
             soundEffect.src = 'success.mp3';
             soundEffect.play();
-            //alert(data.codeResult.code)
         });
 
     </script>
