@@ -40,7 +40,7 @@
         Quagga.onDetected(function (data) {
             console.log(data.codeResult.code);
             document.querySelector('#resultado').innerText = data.codeResult.code;
-            document.querySelector('#results').innerText = document.querySelector('#results').innerText + <br> + data.codeResult.code;
+            document.querySelector('#results').innerText = document.querySelector('#results').innerText + '\n' + data.codeResult.code;
 
             soundEffect.src = 'success.mp3';
             soundEffect.play();
