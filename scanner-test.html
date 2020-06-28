@@ -47,11 +47,12 @@
             document.querySelector('#result').innerText = data.codeResult.code;
             document.querySelector('#results').innerText = document.querySelector('#results').innerText + '\n' + data.codeResult.code;
             
-            if (barcodes.includes(data.codeResult.code) == false){
+            if (barcodes.includes(data.codeResult.code) == false) {
                 barcodes.push(data.codeResult.code)
-                alert(barcodes)
             }
+            
             Quagga.stop();
+            alert(barcodes)
             setTimeout(function(){ Quagga.start(); }, 4000);
             //soundEffect.src = 'success.mp3';
             //soundEffect.play();
