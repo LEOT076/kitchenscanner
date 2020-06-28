@@ -31,16 +31,7 @@
                 frequency: 5
             },
             {
-              readers: [
-                'code_128_reader'
-              ],
-              debug: {
-                  drawBoundingBox: true,
-                  showFrequency: true,
-                  drawScanline: true,
-                  showPattern: false
-              }
-              multiple: false
+              readers: ['code_128_reader']
             }
         }, function (err) {
             if (err) {
