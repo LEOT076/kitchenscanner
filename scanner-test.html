@@ -31,7 +31,7 @@
                 frequency: 5
             },
             decoder : {
-              readers : ["upc_e_reader", "ean_reader"]
+              readers : ['code_128_reader','ean_8_reader','upc_reader','upc_e_reader']
             }
         }, function (err) {
             if (err) {
